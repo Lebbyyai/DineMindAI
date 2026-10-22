@@ -1,0 +1,966 @@
+/* ===========================================
+   DINEMIND AI — BRAND REFINEMENT
+   Restaurant Intelligence
+   =========================================== */
+
+:root {
+  --brand-mint: #64d8c4;
+  --brand-pink: #e8a5b5;
+  --brand-bg: #0b1220;
+  --brand-text: #f5f7fa;
+  --brand-muted: #b5c5d5;
+}
+
+/* Improve brand typography */
+
+.header .brand strong {
+  font-family: "Manrope", sans-serif;
+  font-weight: 800;
+  font-size: 19px;
+  letter-spacing: -0.7px;
+}
+
+.header .brand span {
+  color: #aec0d2;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.65px;
+}
+
+/* Consistent mint section labels */
+
+.section-kicker,
+.algorithm-label,
+.dm-research-content .section-kicker {
+  color: var(--brand-mint);
+  letter-spacing: 2px;
+}
+
+/* Consistent homepage section spacing */
+
+.section.solutions,
+.section.about {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.section.methodology.dm-research-section {
+  padding: 85px 7% 105px;
+  background:
+    radial-gradient(
+      ellipse at 50% 60%,
+      rgba(100,216,196,.065),
+      transparent 65%
+    ),
+    #0b1220;
+}
+
+/* ===========================================
+   PREMIUM RESEARCH CARD
+   =========================================== */
+
+.dm-research-card {
+  position: relative;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: clamp(28px, 4vw, 58px);
+  border-radius: 26px;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 94% 6%,
+      rgba(100,216,196,.095),
+      transparent 34%
+    ),
+    linear-gradient(
+      145deg,
+      #1b2e44,
+      #142238
+    );
+
+  border: 1px solid rgba(184,216,231,.18);
+
+  box-shadow:
+    0 24px 65px rgba(0,0,0,.2),
+    inset 0 1px rgba(255,255,255,.035);
+}
+
+.dm-research-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 8%;
+  right: 8%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(100,216,196,.45),
+    transparent
+  );
+}
+
+.dm-research-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.dm-research-symbol {
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  border-radius: 17px;
+  background: rgba(100,216,196,.12);
+  color: var(--brand-mint);
+  border: 1px solid rgba(100,216,196,.25);
+}
+
+.dm-research-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 100px;
+
+  background: rgba(100,216,196,.09);
+  border: 1px solid rgba(100,216,196,.18);
+
+  color: var(--brand-mint);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+}
+
+.dm-research-content {
+  max-width: 880px;
+}
+
+.dm-research-content h2 {
+  margin: 18px 0 20px;
+  color: var(--brand-text);
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(36px, 4.2vw, 65px);
+  font-weight: 800;
+  line-height: 1.14;
+  letter-spacing: -2px;
+}
+
+.dm-research-content h2 span {
+  color: var(--brand-mint);
+}
+
+.dm-research-content p {
+  max-width: 760px;
+  margin: 0;
+  color: #bdccdb;
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.dm-research-sources {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 15px;
+  margin-top: 35px;
+  margin-bottom: 32px;
+}
+
+.dm-research-sources > div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  padding: 17px 18px;
+  border-radius: 13px;
+  background: rgba(8,21,36,.48);
+  border: 1px solid rgba(194,220,234,.12);
+  color: #dce8f2;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.dm-research-sources svg {
+  flex-shrink: 0;
+  color: var(--brand-mint);
+}
+
+.dm-research-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  flex-wrap: wrap;
+  padding-top: 25px;
+  border-top: 1px solid rgba(207,226,239,.14);
+}
+
+.dm-research-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  max-width: 520px;
+  color: #eac2ce;
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.dm-research-notice svg {
+  flex-shrink: 0;
+  color: var(--brand-pink);
+}
+
+.dm-research-bottom .btn {
+  white-space: nowrap;
+}
+
+/* ===========================================
+   REDESIGNED FOOTER
+   =========================================== */
+
+.footer.dm-footer {
+  display: block;
+  padding: 0 7%;
+  background: #080f1a;
+  color: var(--brand-muted);
+  border-top: 1px solid rgba(200,225,238,.12);
+}
+
+.dm-footer-main {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1.5fr;
+  align-items: center;
+  gap: 32px;
+  padding: 48px 0 38px;
+}
+
+.dm-footer-identity {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.dm-footer-identity strong {
+  display: block;
+  font-family: "Manrope", sans-serif;
+  color: var(--brand-text);
+  font-weight: 800;
+  font-size: 17px;
+}
+
+.dm-footer-identity span {
+  display: block;
+  margin-top: 5px;
+  color: #a8bfd1;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.25px;
+}
+
+.dm-footer-main > p {
+  max-width: 330px;
+  margin: 0;
+  color: #aebfd0;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.dm-footer-links {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 17px;
+}
+
+.dm-footer-links button,
+.dm-footer-bottom button {
+  padding: 5px 0;
+  background: transparent;
+  border: none;
+  color: #b8c9d8;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.dm-footer-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #b8c9d8;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.dm-footer-links button:hover,
+.dm-footer-links a:hover,
+.dm-footer-bottom button:hover {
+  color: var(--brand-mint);
+}
+
+.dm-footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 22px 0 27px;
+  border-top: 1px solid rgba(200,225,238,.12);
+  color: #8fa5b8;
+  font-size: 11px;
+}
+
+/* ===========================================
+   RESPONSIVE LAYOUTS
+   =========================================== */
+
+@media (max-width: 1050px) {
+  .dm-footer-main {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .dm-footer-links {
+    grid-column: 1 / -1;
+    justify-content: flex-start;
+  }
+
+  .dm-research-sources {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 650px) {
+  .section.solutions,
+  .section.about {
+    padding-top: 65px;
+    padding-bottom: 65px;
+  }
+
+  .section.methodology.dm-research-section {
+    padding: 55px 5% 70px;
+  }
+
+  .dm-research-card {
+    padding: 25px 20px;
+    border-radius: 18px;
+  }
+
+  .dm-research-content h2 {
+    font-size: clamp(33px, 9vw, 46px);
+    letter-spacing: -1.3px;
+  }
+
+  .dm-research-content p {
+    font-size: 14px;
+  }
+
+  .dm-research-top {
+    margin-bottom: 22px;
+  }
+
+  .dm-research-sources {
+    gap: 10px;
+    margin-top: 27px;
+  }
+
+  .dm-research-bottom {
+    align-items: stretch;
+  }
+
+  .dm-research-bottom .btn {
+    width: 100%;
+    white-space: normal;
+  }
+
+  .footer.dm-footer {
+    padding: 0 5%;
+  }
+
+  .dm-footer-main {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    padding: 36px 0 28px;
+  }
+
+  .dm-footer-links {
+    grid-column: auto;
+    justify-content: flex-start;
+    gap: 15px;
+  }
+
+  .dm-footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+/* DineMind AI Logo Styling */
+
+.brand-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.brand-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* ===========================================
+   DINEMIND AI — HOMEPAGE FINISHING TOUCHES
+   =========================================== */
+
+/* Balance the hero headline */
+
+.hero h1 {
+  font-size: clamp(38px, 4.3vw, 68px);
+  line-height: 1.12;
+  letter-spacing: -2.5px;
+}
+
+/* Replace leftover orange icons with mint */
+
+.hero .panel-items svg {
+  color: #64d8c4;
+}
+
+/* Make the hero more compact */
+
+.hero {
+  min-height: 600px;
+  padding-top: 70px;
+  padding-bottom: 75px;
+}
+
+.hero-stats {
+  margin-top: 42px;
+}
+
+/* Improve visual panel spacing */
+
+.visual-panel {
+  border-color: rgba(100, 216, 196, 0.2);
+}
+
+.panel-highlight {
+  background: linear-gradient(
+    135deg,
+    rgba(100, 216, 196, 0.1),
+    rgba(232, 165, 181, 0.055)
+  );
+}
+
+/* Responsive headline */
+
+@media (max-width: 650px) {
+  .hero h1 {
+    font-size: clamp(36px, 9vw, 52px);
+    letter-spacing: -1.5px;
+  }
+
+  .hero {
+    padding-top: 55px;
+    padding-bottom: 65px;
+  }
+}
+
+/* ===========================================
+   DINEMIND AI — LOGO ALIGNMENT FIX
+   =========================================== */
+
+/* Vertically align the logo with the brand text */
+.header .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Keep logo container precisely centered */
+.header .brand-icon {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+/* Slight optical adjustment for the logo */
+.header .brand-logo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform: translateY(-3px);
+}
+
+/* ===========================================
+   DINEMIND AI — HOMEPAGE SPACING FIX
+   =========================================== */
+
+/* Reduce excessive space in the hero */
+.hero {
+  min-height: auto;
+  padding-top: 65px;
+  padding-bottom: 65px;
+}
+
+/* Bring the ML solutions section closer */
+.section.solutions {
+  padding-top: 55px;
+  padding-bottom: 80px;
+}
+
+/* Tighten the solutions heading */
+.solutions .section-heading {
+  margin-bottom: 30px;
+}
+
+.solutions .section-heading h2 {
+  margin-top: 14px;
+  margin-bottom: 16px;
+}
+
+.solutions .section-heading p {
+  margin-bottom: 0;
+}
+
+/* Consistent spacing for the ML cards */
+.modules-grid {
+  margin-top: 30px;
+  gap: 20px;
+}
+
+/* Reduce vertical spacing on smaller screens */
+@media (max-width: 950px) {
+  .hero {
+    padding-top: 55px;
+    padding-bottom: 55px;
+  }
+
+  .section.solutions {
+    padding-top: 45px;
+    padding-bottom: 65px;
+  }
+}
+
+@media (max-width: 650px) {
+  .hero {
+    padding-top: 45px;
+    padding-bottom: 45px;
+  }
+
+  .section.solutions {
+    padding-top: 40px;
+    padding-bottom: 55px;
+  }
+
+  .modules-grid {
+    margin-top: 24px;
+    gap: 16px;
+  }
+}
+
+/* Keep section labels consistent with Midnight Sakura */
+.section.solutions .section-kicker,
+.section.about .section-kicker,
+.section.methodology .section-kicker {
+  color: #64d8c4;
+}
+
+/* ============================================
+   DINEMIND AI — FINAL BRANDING CLEANUP
+   Logo alignment + consistent theme colors
+   ============================================ */
+
+/* HEADER: Consistent brand alignment */
+
+.header .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header .brand-icon {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  flex: 0 0 52px;
+  display: grid;
+  place-items: center;
+  background: #0b1220;
+  border: 1px solid rgba(100, 216, 196, 0.25);
+  border-radius: 13px;
+}
+
+.header .brand-logo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: translateY(-2px);
+}
+
+.header .brand > div:last-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* FOOTER: Use the same PNG as the header.
+   This replaces the old SVG visually without
+   changing the existing App.jsx markup. */
+
+.dm-footer-identity .brand-icon {
+  width: 52px;
+  height: 52px;
+  flex: 0 0 52px;
+  padding: 0;
+  border-radius: 13px;
+  background-color: #0b1220;
+  background-image: url("/dinemind-logo.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 1px solid rgba(100, 216, 196, 0.25);
+  overflow: hidden;
+}
+
+.dm-footer-identity .brand-icon > svg {
+  display: none;
+}
+
+/* If the footer already uses an image,
+   show it rather than doubling the logo. */
+
+.dm-footer-identity .brand-icon:has(.brand-logo) {
+  background-image: none;
+}
+
+.dm-footer-identity .brand-logo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translateY(-2px);
+}
+
+/* MIDNIGHT SAKURA: Remove leftover orange
+   from the decorative homepage icons. */
+
+.hero .panel-items > div > svg,
+.hero .panel-items > div > svg:first-child,
+.hero .panel-heading svg {
+  color: #64d8c4 !important;
+  stroke: #64d8c4 !important;
+}
+
+/* Make all section labels consistently mint */
+
+.section-kicker,
+.section.solutions .section-kicker,
+.section.about .section-kicker,
+.section.methodology .section-kicker,
+.insights-promo .section-kicker,
+.algorithm-label {
+  color: #64d8c4 !important;
+}
+
+/* Keep research icons on theme */
+
+.dm-research-symbol,
+.dm-research-sources svg,
+.dm-research-pill {
+  color: #64d8c4;
+}
+
+/* Consistent branding on small screens */
+
+@media (max-width: 650px) {
+  .header .brand-icon,
+  .dm-footer-identity .brand-icon {
+    width: 44px;
+    height: 44px;
+    flex-basis: 44px;
+  }
+
+  .header .brand strong {
+    font-size: 17px;
+  }
+
+  .header .brand span {
+    font-size: 8px;
+    letter-spacing: 1.1px;
+  }
+}
+
+/* ================================================
+   DINEMIND AI — METHODOLOGY COLOR REFINEMENT
+   Midnight Sakura
+   ================================================ */
+
+/* Dataset icons */
+
+.docs-page .docs-dataset-card > svg,
+.docs-page .docs-dataset-card svg {
+  color: #64d8c4;
+  stroke: #64d8c4;
+}
+
+/* Country / dataset origin labels */
+
+.docs-page .docs-dataset-card > span,
+.docs-page .docs-dataset-card .docs-country,
+.docs-page .docs-dataset-country {
+  color: #64d8c4;
+}
+
+/* Algorithm identifiers */
+
+.docs-page .docs-model-tab span,
+.docs-page .docs-model-tab .docs-model-number,
+.docs-page .docs-model-detail > span {
+  color: #64d8c4;
+}
+
+/* Selected algorithm */
+
+.docs-page .docs-model-tab.active {
+  background: rgba(100, 216, 196, 0.1);
+  border-color: #64d8c4;
+}
+
+/* Dataset research caution cards */
+
+.docs-page .docs-caution {
+  background: rgba(232, 165, 181, 0.095);
+  border: 1px solid rgba(232, 165, 181, 0.26);
+  border-radius: 12px;
+  color: #f3cad5;
+  padding: 18px 20px;
+  line-height: 1.7;
+}
+
+.docs-page .docs-caution,
+.docs-page .docs-caution * {
+  color: #f3cad5;
+}
+
+/* Dataset cards remain dark */
+
+.docs-page .docs-dataset-card {
+  background: linear-gradient(
+    145deg,
+    #1b2e45,
+    #142338
+  );
+  border: 1px solid rgba(177, 208, 225, 0.17);
+}
+
+/* Dataset source links */
+
+.docs-page .docs-source-link {
+  color: #64d8c4;
+}
+
+.docs-page .docs-source-link:hover {
+  color: #9ce9dc;
+}
+
+/* Research metric icons */
+
+.docs-page .docs-summary svg,
+.docs-page .docs-summary > div > svg {
+  color: #64d8c4;
+  stroke: #64d8c4;
+}
+
+/* Research headings and labels */
+
+.docs-page .docs-section-kicker,
+.docs-page .docs-section-heading > span,
+.docs-page .docs-hero > span {
+  color: #64d8c4;
+}
+
+/* Improve card labels */
+
+.docs-page .docs-dataset-meta strong {
+  color: #f5f7fa;
+}
+
+.docs-page .docs-dataset-meta span {
+  color: #b9cad8;
+}
+
+/* Mobile research cards */
+
+@media (max-width: 650px) {
+  .docs-page .docs-caution {
+    padding: 14px 16px;
+    font-size: 12px;
+  }
+}
+
+/* ==========================================
+   DINEMIND AI — EXACT METHODOLOGY COLOR FIX
+   ========================================== */
+
+/* Dataset icons: jade mint */
+
+.docs-page .docs-dataset-top svg {
+  color: #64d8c4 !important;
+  stroke: #64d8c4 !important;
+}
+
+/* Dataset country and region labels */
+
+.docs-page .docs-dataset-top span {
+  color: #64d8c4 !important;
+  font-weight: 700;
+}
+
+/* ML-01 through ML-06 identifiers */
+
+.docs-page .docs-model-tab > span {
+  color: #64d8c4 !important;
+}
+
+/* Selected algorithm */
+
+.docs-page .docs-model-tab.active {
+  border-color: #64d8c4 !important;
+  background: rgba(100, 216, 196, 0.1);
+}
+
+/* Dataset limitation warnings */
+
+.docs-page .docs-small-warning {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+
+  padding: 18px 20px;
+  margin-top: 18px;
+
+  background: rgba(232, 165, 181, 0.09) !important;
+  border: 1px solid rgba(232, 165, 181, 0.26) !important;
+  border-radius: 12px;
+
+  color: #f3cad5 !important;
+  line-height: 1.7;
+}
+
+.docs-page .docs-small-warning svg {
+  flex-shrink: 0;
+  color: #e8a5b5 !important;
+  stroke: #e8a5b5 !important;
+}
+
+/* Summary icons */
+
+.docs-page .docs-summary svg {
+  color: #64d8c4 !important;
+  stroke: #64d8c4 !important;
+}
+
+/* ============================================
+   DINEMIND AI — MODEL INSIGHTS REFINEMENT
+   ============================================ */
+
+/* Summary dashboard icons */
+
+.insights-page .insights-stat svg {
+  color: #64d8c4 !important;
+  stroke: #64d8c4 !important;
+}
+
+/* ML-01 through ML-06 selector labels */
+
+.insights-page .insights-tab > span,
+.insights-page .insights-tab .insights-model-number {
+  color: #64d8c4 !important;
+}
+
+/* Selected model indicator */
+
+.insights-page .insights-tab.active {
+  background: rgba(100, 216, 196, 0.10);
+  border-color: #64d8c4;
+}
+
+/* Information panel headings */
+
+.insights-page .insights-info-panel h3,
+.insights-page .insights-info-panel h4,
+.insights-page .insights-info-panel strong,
+.insights-page .insights-info-title,
+.insights-page .insights-info-title * {
+  color: #f5f7fa !important;
+}
+
+/* Information panel body text */
+
+.insights-page .insights-info-panel p,
+.insights-page .insights-info-panel span {
+  color: #bfd0df;
+}
+
+/* Information panel icons */
+
+.insights-page .insights-info-panel svg {
+  color: #64d8c4;
+  stroke: #64d8c4;
+}
+
+/* Model result labels */
+
+.insights-page .insights-model-heading > span,
+.insights-page .insights-model-heading .section-kicker {
+  color: #64d8c4;
+}
+
+/* Confusion matrix readability */
+
+.insights-page .insights-matrix-cell.correct {
+  background: rgba(100, 216, 196, 0.16);
+  color: #a6f0e1;
+}
+
+.insights-page .insights-matrix-cell.incorrect {
+  background: rgba(232, 165, 181, 0.15);
+  color: #f3c0ce;
+}
+
+/* Model caution panel */
+
+.insights-page .insights-limitation {
+  background: rgba(232, 165, 181, 0.09);
+  border: 1px solid rgba(232, 165, 181, 0.26);
+  border-radius: 12px;
+  color: #f3cad5;
+}
+
+.insights-page .insights-limitation * {
+  color: #f3cad5;
+}

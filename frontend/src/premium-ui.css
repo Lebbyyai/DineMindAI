@@ -1,0 +1,710 @@
+/* ================================================
+   DINEMIND AI — PREMIUM ML INTERFACE REFINEMENT
+   Phase 2: Midnight Sakura
+   ================================================ */
+
+:root {
+  --premium-bg: #0b1220;
+  --premium-card: #16263b;
+  --premium-card-alt: #0e1c2e;
+  --premium-border: rgba(177, 208, 225, 0.17);
+  --premium-border-strong: rgba(100, 216, 196, 0.42);
+  --premium-text: #f5f7fa;
+  --premium-muted: #b9cad8;
+  --premium-mint: #64d8c4;
+  --premium-pink: #e8a5b5;
+  --premium-radius: 20px;
+  --premium-shadow: 0 18px 55px rgba(0, 0, 0, 0.18);
+}
+
+/* ================================================
+   PAGE BACKGROUNDS
+   ================================================ */
+
+:is(
+  .revenue-page,
+  .sentiment-page,
+  .recommender-page,
+  .satisfaction-page,
+  .traffic-page,
+  .forecast-page,
+  .insights-page,
+  .docs-page
+) {
+  min-height: calc(100vh - 160px);
+  background:
+    radial-gradient(
+      ellipse at 70% 5%,
+      rgba(100, 216, 196, 0.075),
+      transparent 40%
+    ),
+    radial-gradient(
+      ellipse at 8% 78%,
+      rgba(232, 165, 181, 0.035),
+      transparent 40%
+    ),
+    var(--premium-bg);
+}
+
+/* ================================================
+   MAIN CONTENT PANELS
+   ================================================ */
+
+:is(
+  .revenue-card,
+  .sentiment-card,
+  .recommender-card,
+  .satisfaction-card,
+  .traffic-card,
+  .forecast-card,
+  .insights-main-card,
+  .insights-visualization,
+  .insights-info-panel,
+  .docs-model-detail,
+  .docs-dataset-card
+) {
+  background: linear-gradient(
+    150deg,
+    rgba(27, 46, 70, 0.97),
+    rgba(19, 35, 55, 0.97)
+  );
+  border: 1px solid var(--premium-border);
+  border-radius: var(--premium-radius);
+  box-shadow: var(--premium-shadow);
+  color: var(--premium-text);
+}
+
+:is(
+  .revenue-card,
+  .sentiment-card,
+  .recommender-card,
+  .satisfaction-card,
+  .traffic-card,
+  .forecast-card
+) {
+  padding: clamp(20px, 2.3vw, 36px);
+  min-width: 0;
+}
+
+/* ================================================
+   HEADINGS AND LABELS
+   ================================================ */
+
+:is(
+  .revenue-card,
+  .sentiment-card,
+  .recommender-card,
+  .satisfaction-card,
+  .traffic-card,
+  .forecast-card
+) :is(h2, h3, h4) {
+  color: var(--premium-text);
+  letter-spacing: -0.45px;
+}
+
+:is(
+  .revenue-page,
+  .sentiment-page,
+  .recommender-page,
+  .satisfaction-page,
+  .traffic-page,
+  .forecast-page
+) label {
+  display: inline-block;
+  color: #e2eaf2;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+:is(
+  .revenue-card,
+  .sentiment-card,
+  .recommender-card,
+  .satisfaction-card,
+  .traffic-card,
+  .forecast-card
+) p {
+  line-height: 1.75;
+}
+
+/* ================================================
+   INPUTS AND SELECTS
+   ================================================ */
+
+:is(
+  .revenue-page,
+  .sentiment-page,
+  .recommender-page,
+  .satisfaction-page,
+  .traffic-page,
+  .forecast-page
+) :is(input, select, textarea) {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  min-height: 52px;
+  padding: 12px 15px;
+
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.5;
+
+  background: #0d1a2b;
+  color: var(--premium-text);
+  border: 1px solid rgba(169, 197, 217, 0.29);
+  border-radius: 12px;
+
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease;
+}
+
+:is(
+  .revenue-page,
+  .sentiment-page,
+  .recommender-page,
+  .satisfaction-page,
+  .traffic-page,
+  .forecast-page
+) textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+:is(
+  .revenue-page,
+  .sentiment-page,
+  .recommender-page,
+  .satisfaction-page,
+  .traffic-page,
+  .forecast-page
+) :is(input, select, textarea):hover:not(:disabled) {
+  border-color: rgba(100, 216, 196, 0.51);
+}
+
+:is(
+  .revenue-page,
+  .sentiment-page,
+  .recommender-page,
+  .satisfaction-page,
+  .traffic-page,
+  .forecast-page
+) :is(input, select, textarea):focus-visible {
+  outline: 2px solid var(--premium-mint);
+  outline-offset: 2px;
+  background: #102238;
+  border-color: var(--premium-mint);
+  box-shadow: 0 0 0 5px rgba(100, 216, 196, 0.1);
+}
+
+:is(
+  .revenue-page,
+  .sentiment-page,
+  .recommender-page,
+  .satisfaction-page,
+  .traffic-page,
+  .forecast-page
+) :is(input, textarea)::placeholder {
+  color: #98adbf;
+}
+
+:is(
+  .revenue-page,
+  .sentiment-page,
+  .recommender-page,
+  .satisfaction-page,
+  .traffic-page,
+  .forecast-page
+) select option {
+  background: #142338;
+  color: #f5f7fa;
+}
+
+/* ================================================
+   BUTTONS
+   Apply to prediction page actions.
+   ================================================ */
+
+:is(
+  .revenue-page,
+  .sentiment-page,
+  .recommender-page,
+  .satisfaction-page,
+  .traffic-page,
+  .forecast-page
+) button {
+  font-family: inherit;
+  font-weight: 700;
+  transition:
+    transform 180ms ease,
+    background 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+:is(
+  .revenue-page,
+  .sentiment-page,
+  .recommender-page,
+  .satisfaction-page,
+  .traffic-page,
+  .forecast-page
+) button:not(:disabled):hover {
+  transform: translateY(-1px);
+}
+
+:is(
+  .revenue-page,
+  .sentiment-page,
+  .recommender-page,
+  .satisfaction-page,
+  .traffic-page,
+  .forecast-page
+) button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+:is(
+  .revenue-page,
+  .sentiment-page,
+  .recommender-page,
+  .satisfaction-page,
+  .traffic-page,
+  .forecast-page
+) button:focus-visible {
+  outline: 3px solid var(--premium-mint);
+  outline-offset: 3px;
+}
+
+/* ================================================
+   RESULT NUMBERS AND KEY METRICS
+   ================================================ */
+
+.revenue-result-number,
+.forecast-result-number {
+  color: var(--premium-mint);
+  font-family: "Manrope", "DM Sans", sans-serif;
+  font-size: clamp(30px, 3.2vw, 46px);
+  font-weight: 800;
+  line-height: 1.16;
+  letter-spacing: -1.1px;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+
+:is(
+  .revenue-summary,
+  .satisfaction-summary,
+  .traffic-summary,
+  .forecast-summary
+) {
+  background: var(--premium-card-alt);
+  border: 1px solid var(--premium-border);
+  border-radius: 14px;
+  padding: clamp(16px, 1.6vw, 24px);
+}
+
+:is(
+  .revenue-summary,
+  .satisfaction-summary,
+  .traffic-summary,
+  .forecast-summary
+) strong {
+  color: var(--premium-text);
+}
+
+:is(
+  .revenue-summary,
+  .satisfaction-summary,
+  .traffic-summary,
+  .forecast-summary
+) p {
+  color: var(--premium-muted);
+}
+
+/* ================================================
+   EXPERIMENTAL / LIMITATION WARNINGS
+   ================================================ */
+
+:is(
+  .revenue-warning,
+  .revenue-info,
+  .sentiment-disclaimer,
+  .recommender-note,
+  .satisfaction-disclaimer,
+  .traffic-disclaimer,
+  .forecast-disclaimer,
+  .insights-limitation,
+  .docs-caution
+) {
+  border: 1px solid rgba(232, 165, 181, 0.26);
+  border-radius: 12px;
+  background: rgba(232, 165, 181, 0.095);
+  color: #f3cad5;
+  line-height: 1.7;
+}
+
+/* ================================================
+   EMPTY AND LOADING STATES
+   ================================================ */
+
+:is(
+  .revenue-empty,
+  .sentiment-empty,
+  .recommender-empty,
+  .satisfaction-empty,
+  .traffic-empty,
+  .forecast-empty
+) {
+  border-radius: 14px;
+  color: var(--premium-muted);
+}
+
+:is(
+  .revenue-empty,
+  .sentiment-empty,
+  .recommender-empty,
+  .satisfaction-empty,
+  .traffic-empty,
+  .forecast-empty
+) svg {
+  color: var(--premium-mint);
+  opacity: 0.7;
+}
+
+[aria-busy="true"] {
+  cursor: progress;
+}
+
+@keyframes dm-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.dm-spinner {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(100, 216, 196, 0.25);
+  border-top-color: var(--premium-mint);
+  border-radius: 50%;
+  animation: dm-spin 850ms linear infinite;
+}
+
+/* ================================================
+   SENTIMENT PROBABILITY BARS
+   ================================================ */
+
+.probability-track,
+.forecast-bar-track {
+  overflow: hidden;
+  border-radius: 99px;
+  background: #273a50;
+}
+
+.positive-fill,
+.forecast-bar.predicted {
+  background: linear-gradient(
+    90deg,
+    #329e91,
+    #64d8c4
+  );
+}
+
+.negative-fill,
+.forecast-bar.actual {
+  background: linear-gradient(
+    90deg,
+    #bd788e,
+    #e8a5b5
+  );
+}
+
+/* ================================================
+   RECOMMENDATION RESULTS
+   ================================================ */
+
+.recommendation-item {
+  border: 1px solid var(--premium-border);
+  border-radius: 14px;
+  background: rgba(11, 25, 42, 0.75);
+  padding: clamp(14px, 1.6vw, 22px);
+  transition: border-color 180ms ease;
+}
+
+.recommendation-item:hover {
+  border-color: var(--premium-border-strong);
+}
+
+.recommendation-rank {
+  color: var(--premium-mint);
+  background: rgba(100, 216, 196, 0.11);
+  border: 1px solid rgba(100, 216, 196, 0.2);
+}
+
+.similarity-display {
+  color: var(--premium-mint);
+}
+
+/* ================================================
+   MODEL INSIGHTS DASHBOARD
+   ================================================ */
+
+.insights-stat,
+.insights-metric,
+.insights-info-panel,
+.insights-visualization {
+  border: 1px solid var(--premium-border);
+  border-radius: 15px;
+}
+
+.insights-primary-metric {
+  background: linear-gradient(
+    145deg,
+    rgba(100, 216, 196, 0.11),
+    rgba(100, 216, 196, 0.035)
+  );
+  border: 1px solid rgba(100, 216, 196, 0.3);
+  border-radius: 14px;
+}
+
+.insights-primary-metric strong {
+  color: var(--premium-mint);
+}
+
+.insights-tab.active,
+.docs-model-tab.active {
+  border-color: var(--premium-mint);
+  background: rgba(100, 216, 196, 0.1);
+}
+
+.insights-matrix-cell.correct {
+  background: rgba(100, 216, 196, 0.16);
+  color: #a6f0e1;
+}
+
+.insights-matrix-cell.incorrect {
+  background: rgba(232, 165, 181, 0.15);
+  color: #f3c0ce;
+}
+
+/* ================================================
+   TABLES AND CHART CONTENT
+   ================================================ */
+
+:is(.insights-page, .docs-page) table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+:is(.insights-page, .docs-page) th,
+:is(.insights-page, .docs-page) td {
+  border-bottom: 1px solid var(--premium-border);
+  padding: 12px;
+  text-align: left;
+}
+
+:is(.insights-page, .docs-page) th {
+  color: var(--premium-text);
+}
+
+:is(.insights-page, .docs-page) td {
+  color: var(--premium-muted);
+}
+
+.recharts-text {
+  fill: #b9cad8;
+}
+
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+  stroke: rgba(185, 202, 216, 0.13);
+}
+
+/* ================================================
+   MOBILE REFINEMENT
+   ================================================ */
+
+@media (max-width: 900px) {
+  :is(
+    .revenue-page,
+    .sentiment-page,
+    .recommender-page,
+    .satisfaction-page,
+    .traffic-page,
+    .forecast-page,
+    .insights-page,
+    .docs-page
+  ) {
+    overflow-x: clip;
+  }
+
+  :is(
+    .revenue-card,
+    .sentiment-card,
+    .recommender-card,
+    .satisfaction-card,
+    .traffic-card,
+    .forecast-card
+  ) {
+    padding: 22px;
+  }
+}
+
+@media (max-width: 600px) {
+  :is(
+    .revenue-card,
+    .sentiment-card,
+    .recommender-card,
+    .satisfaction-card,
+    .traffic-card,
+    .forecast-card
+  ) {
+    padding: 18px;
+    border-radius: 16px;
+  }
+
+  .revenue-result-number,
+  .forecast-result-number {
+    font-size: clamp(26px, 7vw, 37px);
+    letter-spacing: -0.7px;
+  }
+
+  :is(
+    .revenue-page,
+    .sentiment-page,
+    .recommender-page,
+    .satisfaction-page,
+    .traffic-page,
+    .forecast-page
+  ) :is(input, select, textarea) {
+    font-size: 16px;
+    min-height: 50px;
+  }
+
+  :is(
+    .revenue-page,
+    .sentiment-page,
+    .recommender-page,
+    .satisfaction-page,
+    .traffic-page,
+    .forecast-page
+  ) button {
+    min-height: 44px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dm-spinner {
+    animation: none;
+  }
+
+  :is(
+    .revenue-page,
+    .sentiment-page,
+    .recommender-page,
+    .satisfaction-page,
+    .traffic-page,
+    .forecast-page
+  ) button {
+    transition: none;
+  }
+}
+
+
+/* ================================================
+   DINEMIND AI — UI QA FIXES
+   ================================================ */
+
+/* 1. Improve text readability in information panels */
+
+.satisfaction-details,
+.satisfaction-details *,
+.revenue-summary,
+.traffic-info,
+.traffic-explanation,
+.forecast-info {
+  color: #dce8f2;
+}
+
+.satisfaction-details strong,
+.satisfaction-details h3,
+.satisfaction-details h4 {
+  color: #f5f7fa;
+}
+
+.satisfaction-details p,
+.satisfaction-details span {
+  color: #c0d1df;
+}
+
+/* 2. Improve disclaimer presentation */
+
+.sentiment-disclaimer,
+.revenue-disclaimer,
+.recommender-note,
+.satisfaction-disclaimer,
+.traffic-disclaimer,
+.forecast-disclaimer {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 15px 20px;
+  margin-top: 22px;
+  border: 1px solid rgba(232,165,181,0.25);
+  border-radius: 12px;
+  background: rgba(232,165,181,0.085);
+  color: #f0c3ce;
+  line-height: 1.7;
+  font-size: 13px;
+}
+
+/* 3. Give page titles breathing room */
+
+.revenue-page,
+.sentiment-page,
+.recommender-page,
+.satisfaction-page,
+.traffic-page,
+.forecast-page {
+  scroll-margin-top: 105px;
+}
+
+.revenue-heading,
+.sentiment-header,
+.recommender-heading,
+.satisfaction-heading,
+.traffic-heading,
+.forecast-heading {
+  position: relative;
+  z-index: 1;
+}
+
+/* 4. Improve long restaurant names */
+
+.satisfaction-details,
+.recommendation-item,
+.recommender-card,
+.traffic-card,
+.forecast-card {
+  overflow-wrap: anywhere;
+}
+
+/* 5. Keep dense cards comfortable on mobile */
+
+@media (max-width: 600px) {
+  .sentiment-disclaimer,
+  .revenue-disclaimer,
+  .recommender-note,
+  .satisfaction-disclaimer,
+  .traffic-disclaimer,
+  .forecast-disclaimer {
+    padding: 14px;
+    font-size: 12px;
+  }
+}

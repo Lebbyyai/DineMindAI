@@ -1,5 +1,5 @@
-
 import { useState } from "react";
+
 import {
   BrainCircuit,
   Menu,
@@ -13,6 +13,12 @@ import {
   ChartColumnIncreasing,
   Database,
   CheckCircle2,
+  Sparkles,
+  ShieldCheck,
+  BarChart3,
+  Globe2,
+  BookOpen,
+  Layers3,
 } from "lucide-react";
 
 import RevenuePredictor from "./components/RevenuePredictor";
@@ -25,10 +31,9 @@ import ModelInsights from "./components/ModelInsights";
 import DatasetMethodology from "./components/DatasetMethodology";
 
 import "./App.css";
-
-// ============================================
-// DINEMIND AI 2.0
-// ============================================
+import "./theme.css";
+import "./premium-ui.css";
+import "./brand-refinement.css";
 
 const modules = [
   {
@@ -37,7 +42,7 @@ const modules = [
     name: "Revenue Prediction",
     algorithm: "Linear Regression",
     description:
-      "Explore how restaurant attributes relate to experimental revenue estimates.",
+      "Explore experimental revenue estimates based on restaurant characteristics.",
     icon: TrendingUp,
     button: "Predict Revenue",
   },
@@ -47,9 +52,9 @@ const modules = [
     name: "Review Sentiment",
     algorithm: "Naive Bayes",
     description:
-      "Analyze English-language customer reviews to identify positive and negative feedback.",
+      "Identify positive and negative patterns in English-language customer reviews.",
     icon: MessageSquare,
-    button: "Analyze Reviews",
+    button: "Analyze Sentiment",
   },
   {
     id: "recommendations",
@@ -57,7 +62,7 @@ const modules = [
     name: "Restaurant Recommendations",
     algorithm: "K-Nearest Neighbors",
     description:
-      "Find restaurants matching cuisine, budget, and atmosphere preferences.",
+      "Discover restaurants matching your cuisine, price, and atmosphere preferences.",
     icon: UtensilsCrossed,
     button: "Find Restaurants",
   },
@@ -67,7 +72,7 @@ const modules = [
     name: "Customer Satisfaction",
     algorithm: "Support Vector Machine",
     description:
-      "Explore satisfaction predictions based on historical customer ratings.",
+      "Estimate satisfaction using historical customer ratings and restaurant features.",
     icon: HeartHandshake,
     button: "Predict Satisfaction",
   },
@@ -77,7 +82,7 @@ const modules = [
     name: "Traffic Classification",
     algorithm: "Decision Tree",
     description:
-      "Classify historical Japanese restaurant traffic as Low, Medium, or High.",
+      "Classify historical restaurant visitor demand as Low, Medium, or High.",
     icon: Users,
     button: "Classify Traffic",
   },
@@ -87,40 +92,40 @@ const modules = [
     name: "Visitor Forecasting",
     algorithm: "Artificial Neural Network",
     description:
-      "Estimate historical daily restaurant visitor counts using neural networks.",
+      "Estimate historical daily restaurant visitors using a neural network.",
     icon: ChartColumnIncreasing,
     button: "Forecast Visitors",
   },
 ];
 
-const moduleIds = modules.map((item) => item.id);
-
 export default function App() {
-  const [menuOpen, setMenuOpen] = useState(false);
   const [activePage, setActivePage] = useState("home");
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const closeMenu = () => setMenuOpen(false);
 
   function openPage(page) {
     setActivePage(page);
-    setMenuOpen(false);
-    window.scrollTo({ top: 0, behavior: "auto" });
-  }
+    closeMenu();
 
-  function openModule(id) {
-    if (moduleIds.includes(id)) {
-      openPage(id);
-    }
+    window.scrollTo({
+      top: 0,
+      behavior: "auto",
+    });
   }
 
   function navigateTo(sectionId) {
     setActivePage("home");
-    setMenuOpen(false);
+    closeMenu();
 
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
-        document.getElementById(sectionId)?.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
+        document
+          .getElementById(sectionId)
+          ?.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
       });
     });
   }
@@ -129,52 +134,16 @@ export default function App() {
     navigateTo("solutions");
   }
 
-  function renderContent() {
-    switch (activePage) {
-      case "revenue":
-        return <RevenuePredictor onBack={closeModule} />;
-
-      case "sentiment":
-        return <SentimentAnalyzer onBack={closeModule} />;
-
-      case "recommendations":
-        return <RestaurantRecommender onBack={closeModule} />;
-
-      case "satisfaction":
-        return <SatisfactionPredictor onBack={closeModule} />;
-
-      case "traffic":
-        return <TrafficClassifier onBack={closeModule} />;
-
-      case "visitors":
-        return <VisitorForecast onBack={closeModule} />;
-
-      case "insights":
-        return <ModelInsights onBack={closeModule} />;
-
-      case "datasets":
-        return (
-          <DatasetMethodology
-            onBack={closeModule}
-            onOpenInsights={() => openPage("insights")}
-          />
-        );
-
-      default:
-        return renderHomePage();
-    }
-  }
-
   function renderHomePage() {
     return (
       <>
-        {/* HERO SECTION */}
+        {/* HERO */}
 
         <section id="home" className="hero">
           <div className="hero-content">
             <div className="eyebrow">
               <span className="status-dot" />
-              MACHINE LEARNING FOR RESTAURANTS
+              MACHINE LEARNING FOR RESTAURANT INTELLIGENCE
             </div>
 
             <h1>
@@ -184,46 +153,47 @@ export default function App() {
             </h1>
 
             <p>
-              Discover six machine learning applications
-              exploring restaurant revenue, customer
-              feedback, recommendations, satisfaction,
-              and historical visitor demand.
+              Discover the potential of intelligent
+              restaurant analytics. Explore six trained
+              machine learning applications that
+              demonstrate predictions, classifications,
+              customer insights, and recommendations.
             </p>
 
             <div className="hero-actions">
-              <a
-                href="#solutions"
+              <button
+                type="button"
                 className="btn btn-primary"
-                onClick={(event) => {
-                  event.preventDefault();
-                  navigateTo("solutions");
-                }}
+                onClick={() => navigateTo("solutions")}
               >
-                Explore Our Solutions
+                Explore AI Solutions
                 <ArrowRight size={18} />
-              </a>
+              </button>
 
               <button
                 type="button"
                 className="btn btn-secondary"
-                onClick={() => openPage("datasets")}
+                onClick={() => openPage("insights")}
               >
-                Explore the Research
+                <BarChart3 size={18} />
+                Model Insights
               </button>
             </div>
 
             <div className="hero-stats">
               <div>
                 <strong>06</strong>
-                <span>ML Algorithms</span>
+                <span>Trained Models</span>
               </div>
+
               <div>
                 <strong>06</strong>
-                <span>Business Applications</span>
+                <span>Interactive Tools</span>
               </div>
+
               <div>
-                <strong>Real</strong>
-                <span>Research Datasets</span>
+                <strong>04</strong>
+                <span>Dataset Families</span>
               </div>
             </div>
           </div>
@@ -234,65 +204,77 @@ export default function App() {
             <div className="visual-panel">
               <div className="panel-heading">
                 <span>
-                  <BrainCircuit size={18} />
-                  Intelligence Overview
+                  <BrainCircuit size={20} />
+                  DineMind Intelligence
                 </span>
+
                 <span className="panel-label">
-                  ML DEMO
+                  AI LAB
                 </span>
               </div>
 
               <div className="panel-highlight">
-                <span>Six Specialized Models</span>
-                <strong>Data Into Decisions</strong>
+                <span>
+                  <Sparkles size={15} />
+                  DATA-DRIVEN EXPLORATION
+                </span>
+
+                <strong>
+                  Intelligence behind every insight.
+                </strong>
+
                 <p>
-                  Restaurant analytics powered by
-                  trained machine learning models.
+                  Explore six machine learning approaches
+                  through interactive restaurant
+                  intelligence demonstrations.
                 </p>
               </div>
 
               <div className="panel-items">
                 <div>
-                  <TrendingUp />
-                  <span>Revenue Analytics</span>
-                  <CheckCircle2 />
+                  <TrendingUp size={19} />
+                  <span>Revenue Analysis</span>
+                  <CheckCircle2 size={17} />
                 </div>
+
                 <div>
-                  <MessageSquare />
+                  <MessageSquare size={19} />
                   <span>Customer Sentiment</span>
-                  <CheckCircle2 />
+                  <CheckCircle2 size={17} />
                 </div>
+
                 <div>
-                  <Users />
-                  <span>Visitor Demand</span>
-                  <CheckCircle2 />
+                  <Users size={19} />
+                  <span>Visitor Intelligence</span>
+                  <CheckCircle2 size={17} />
                 </div>
               </div>
 
               <div className="panel-footer">
-                <Database size={15} />
-                Historical research data · Academic demonstration
+                <ShieldCheck size={16} />
+                Academic research with transparent limitations
               </div>
             </div>
           </div>
         </section>
 
-        {/* ML SOLUTIONS */}
+        {/* SOLUTIONS */}
 
-        <section
-          id="solutions"
-          className="section solutions"
-        >
+        <section id="solutions" className="section solutions">
           <div className="section-heading">
             <span className="section-kicker">
-              OUR MACHINE LEARNING LAB
+              EXPLORE OUR INTELLIGENCE LAB
             </span>
+
             <h2>
-              Six algorithms. Six business solutions.
+              Six machine learning applications.
             </h2>
+
             <p>
-              Explore the different ways machine
-              learning can support restaurant analysis.
+              From customer experience to restaurant
+              operations, explore the different ways
+              machine learning can analyze and interpret
+              restaurant-related data.
             </p>
           </div>
 
@@ -309,8 +291,9 @@ export default function App() {
                     <span className="module-icon">
                       <Icon size={25} />
                     </span>
+
                     <span className="module-number">
-                      {module.number}
+                      ML-{module.number}
                     </span>
                   </div>
 
@@ -324,7 +307,7 @@ export default function App() {
                   <button
                     type="button"
                     className="module-open"
-                    onClick={() => openModule(module.id)}
+                    onClick={() => openPage(module.id)}
                   >
                     {module.button}
                     <ArrowRight size={18} />
@@ -337,16 +320,17 @@ export default function App() {
           <div className="insights-promo">
             <div>
               <span className="section-kicker">
-                BEYOND PREDICTIONS
+                RESEARCH TRANSPARENCY
               </span>
 
               <h2>
-                Explore the science behind our models.
+                Understand the science behind the results.
               </h2>
 
               <p>
-                View evaluation metrics, confusion
-                matrices, comparisons, and limitations.
+                Explore how the models were evaluated,
+                review their reported metrics, and
+                understand their limitations.
               </p>
             </div>
 
@@ -355,31 +339,36 @@ export default function App() {
               className="btn btn-primary"
               onClick={() => openPage("insights")}
             >
-              View Model Insights
+              Explore Model Insights
               <ArrowRight size={18} />
             </button>
           </div>
         </section>
 
-        {/* ABOUT SECTION */}
+        {/* ABOUT */}
 
         <section id="about" className="section about">
           <div>
             <span className="section-kicker">
-              WHO WE ARE
+              THE IDEA BEHIND DINEMIND
             </span>
 
             <h2>
-              Restaurant intelligence with purpose.
+              Where dining meets intelligence.
             </h2>
 
             <p>
-              DineMind AI is a fictional Japan-focused
-              restaurant intelligence company developed
-              for an academic machine learning project.
-              The website demonstrates the potential
-              and limitations of data-driven
-              restaurant decision support.
+              DineMind AI is an academic restaurant
+              intelligence platform that demonstrates
+              how machine learning can help analyze
+              restaurant-related information.
+            </p>
+
+            <p>
+              The name combines "Dine", representing
+              restaurants and dining experiences,
+              with "Mind", representing intelligence,
+              analysis, and data-driven thinking.
             </p>
           </div>
 
@@ -387,63 +376,97 @@ export default function App() {
             <article>
               <h3>Our Mission</h3>
               <p>
-                To make restaurant analytics accessible
-                and demonstrate how machine learning
-                supports informed decisions.
+                Make restaurant-related machine learning
+                applications more understandable and
+                accessible through interactive tools.
               </p>
             </article>
 
             <article>
               <h3>Our Vision</h3>
               <p>
-                To encourage responsible, transparent
-                and useful applications of data science
-                in the restaurant industry.
+                Explore how responsible, transparent,
+                and data-driven technology could
+                support better restaurant decisions.
               </p>
             </article>
           </div>
         </section>
 
-        {/* METHODOLOGY PREVIEW */}
+        {/* RESEARCH METHODOLOGY */}
 
         <section
           id="methodology"
-          className="section methodology"
+          className="section methodology dm-research-section"
         >
-          <div className="method-card">
-            <Database size={32} />
+          <div className="dm-research-card">
+            <div className="dm-research-top">
+              <div className="dm-research-symbol">
+                <Database size={27} />
+              </div>
 
-            <div>
+              <span className="dm-research-pill">
+                <BookOpen size={14} />
+                RESEARCH FOUNDATION
+              </span>
+            </div>
+
+            <div className="dm-research-content">
               <span className="section-kicker">
-                TRANSPARENT BY DESIGN
+                BUILT ON REAL DATA
               </span>
 
               <h2>
-                Real data. Real models. Clear limitations.
+                Real datasets.
+                <br />
+                Real models.
+                <br />
+                <span>Transparent limitations.</span>
               </h2>
 
               <p>
-                Our demonstrations use historical Japanese
-                restaurant visits, restaurant ratings
-                from Mexico, English-language Yelp reviews,
-                and anonymized restaurant revenue data.
+                DineMind AI brings together several
+                public research datasets to demonstrate
+                different machine learning methods.
+                We clearly identify their origins,
+                evaluation metrics, and limitations.
               </p>
+            </div>
 
-              <small>
-                These are academic demonstrations,
-                not production-validated business tools.
-              </small>
-
-              <div style={{ marginTop: "22px" }}>
-                <button
-                  type="button"
-                  className="btn btn-primary"
-                  onClick={() => openPage("datasets")}
-                >
-                  View Datasets & Methodology
-                  <ArrowRight size={18} />
-                </button>
+            <div className="dm-research-sources">
+              <div>
+                <Globe2 size={20} />
+                <span>Multiple dataset origins</span>
               </div>
+
+              <div>
+                <Layers3 size={20} />
+                <span>Six ML approaches</span>
+              </div>
+
+              <div>
+                <ShieldCheck size={20} />
+                <span>Research limitations disclosed</span>
+              </div>
+            </div>
+
+            <div className="dm-research-bottom">
+              <div className="dm-research-notice">
+                <ShieldCheck size={19} />
+                <span>
+                  Academic demonstration. Not a
+                  production-validated business service.
+                </span>
+              </div>
+
+              <button
+                type="button"
+                className="btn btn-primary"
+                onClick={() => openPage("datasets")}
+              >
+                Explore Our Methodology
+                <ArrowRight size={18} />
+              </button>
             </div>
           </div>
         </section>
@@ -451,10 +474,54 @@ export default function App() {
     );
   }
 
+  function renderContent() {
+    switch (activePage) {
+      case "revenue":
+        return <RevenuePredictor onBack={closeModule} />;
+
+      case "sentiment":
+        return <SentimentAnalyzer onBack={closeModule} />;
+
+      case "recommendations":
+        return (
+          <RestaurantRecommender onBack={closeModule} />
+        );
+
+      case "satisfaction":
+        return (
+          <SatisfactionPredictor onBack={closeModule} />
+        );
+
+      case "traffic":
+        return (
+          <TrafficClassifier onBack={closeModule} />
+        );
+
+      case "visitors":
+        return (
+          <VisitorForecast onBack={closeModule} />
+        );
+
+      case "insights":
+        return (
+          <ModelInsights onBack={closeModule} />
+        );
+
+      case "datasets":
+        return (
+          <DatasetMethodology
+            onBack={closeModule}
+            onOpenInsights={() => openPage("insights")}
+          />
+        );
+
+      default:
+        return renderHomePage();
+    }
+  }
+
   return (
     <div className="app">
-      {/* NAVIGATION */}
-
       <header className="header">
         <a
           href="#home"
@@ -465,29 +532,35 @@ export default function App() {
           }}
         >
           <div className="brand-icon">
-            <UtensilsCrossed size={22} />
-          </div>
+  <img
+    src="/dinemind-logo.png"
+    alt="DineMind AI Logo"
+    className="brand-logo"
+  />
+</div>
 
           <div>
             <strong>DineMind AI</strong>
-            <span>
-              JAPAN · RESTAURANT INTELLIGENCE
-            </span>
+            <span>RESTAURANT INTELLIGENCE</span>
           </div>
         </a>
 
-        <nav className={menuOpen ? "nav nav-open" : "nav"}>
+        <nav
+          id="main-navigation"
+          className={menuOpen ? "nav nav-open" : "nav"}
+          aria-label="Main navigation"
+        >
           {[
             ["Home", "home"],
             ["ML Solutions", "solutions"],
             ["About", "about"],
-          ].map(([label, id]) => (
+          ].map(([label, sectionId]) => (
             <a
-              key={id}
-              href={`#${id}`}
+              key={sectionId}
+              href={`#${sectionId}`}
               onClick={(event) => {
                 event.preventDefault();
-                navigateTo(id);
+                navigateTo(sectionId);
               }}
             >
               {label}
@@ -496,16 +569,26 @@ export default function App() {
 
           <a
             href="#datasets"
+            aria-current={
+              activePage === "datasets"
+                ? "page"
+                : undefined
+            }
             onClick={(event) => {
               event.preventDefault();
               openPage("datasets");
             }}
           >
-            Datasets & Methodology
+            Methodology
           </a>
 
           <a
             href="#insights"
+            aria-current={
+              activePage === "insights"
+                ? "page"
+                : undefined
+            }
             onClick={(event) => {
               event.preventDefault();
               openPage("insights");
@@ -530,39 +613,103 @@ export default function App() {
         <button
           type="button"
           className="mobile-menu"
-          aria-label="Toggle navigation"
+          aria-label={
+            menuOpen
+              ? "Close navigation"
+              : "Open navigation"
+          }
+          aria-controls="main-navigation"
           aria-expanded={menuOpen}
           onClick={() => setMenuOpen(!menuOpen)}
         >
-          {menuOpen ? <X /> : <Menu />}
+          {menuOpen ? (
+            <X size={23} />
+          ) : (
+            <Menu size={23} />
+          )}
         </button>
       </header>
 
-      {/* ACTIVE PAGE */}
+      <main id="main-content">
+        {renderContent()}
+      </main>
 
-      <main>{renderContent()}</main>
+      <footer className="footer dm-footer">
+        <div className="dm-footer-main">
+          <div className="dm-footer-identity">
+            <div className="brand-icon">
+              <BrainCircuit size={22} />
+            </div>
 
-      {/* FOOTER */}
+            <div>
+              <strong>DineMind AI</strong>
+              <span>RESTAURANT INTELLIGENCE</span>
+            </div>
+          </div>
 
-      <footer className="footer">
-        <div className="footer-brand">
-          <UtensilsCrossed size={20} />
-          <strong>DineMind AI</strong>
+          <p>
+            Exploring smarter restaurant decisions
+            through machine learning.
+          </p>
+
+          <div className="dm-footer-links">
+            <button
+              type="button"
+              onClick={() => navigateTo("solutions")}
+            >
+              ML Solutions
+            </button>
+
+            <button
+              type="button"
+              onClick={() => openPage("datasets")}
+            >
+              Methodology
+            </button>
+
+            <button
+              type="button"
+              onClick={() => openPage("insights")}
+            >
+              Model Insights
+            </button>
+
+            <a
+              href="https://github.com/Lebbyyai/DineMindAI"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="DineMind AI GitHub repository"
+            >
+              <svg
+  width="18"
+  height="18"
+  viewBox="0 0 24 24"
+  fill="currentColor"
+  aria-hidden="true"
+>
+  <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.69-3.88-1.36-3.88-1.36-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.72-1.53-2.56-.29-5.26-1.28-5.26-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.47.11-3.06 0 0 .96-.31 3.15 1.18A10.96 10.96 0 0 1 12 6.1c.98 0 1.97.13 2.89.39 2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.77.11 3.06.73.81 1.18 1.84 1.18 3.1 0 4.43-2.7 5.4-5.27 5.69.41.35.77 1.02.77 2.06 0 1.49-.01 2.69-.01 3.06 0 .31.21.68.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z" />
+</svg>
+              GitHub
+            </a>
+          </div>
         </div>
 
-        <span>
-          Academic Machine Learning Project · 2026
-        </span>
+        <div className="dm-footer-bottom">
+          <span>
+            © 2026 DineMind AI · Academic ML Project
+          </span>
 
-        <a
-          href="#home"
-          onClick={(event) => {
-            event.preventDefault();
-            navigateTo("home");
-          }}
-        >
-          Back to top ↑
-        </a>
+          <span>
+            Smarter Decisions. Better Dining.
+          </span>
+
+          <button
+            type="button"
+            onClick={() => navigateTo("home")}
+          >
+            Back to top ↑
+          </button>
+        </div>
       </footer>
     </div>
   );
