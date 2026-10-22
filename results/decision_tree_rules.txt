@@ -1,0 +1,94 @@
+|--- day_of_week_num <= 3.50
+|   |--- holiday_flg <= 0.50
+|   |   |--- day_of_week_num <= 0.50
+|   |   |   |--- previous_7_record_avg <= 40.07
+|   |   |   |   |--- month <= 11.50
+|   |   |   |   |   |--- truncated branch of depth 11
+|   |   |   |   |--- month >  11.50
+|   |   |   |   |   |--- truncated branch of depth 11
+|   |   |   |--- previous_7_record_avg >  40.07
+|   |   |   |   |--- days_since_previous_record <= 1.50
+|   |   |   |   |   |--- truncated branch of depth 10
+|   |   |   |   |--- days_since_previous_record >  1.50
+|   |   |   |   |   |--- truncated branch of depth 6
+|   |   |--- day_of_week_num >  0.50
+|   |   |   |--- previous_visitors <= 26.50
+|   |   |   |   |--- month <= 11.50
+|   |   |   |   |   |--- truncated branch of depth 11
+|   |   |   |   |--- month >  11.50
+|   |   |   |   |   |--- truncated branch of depth 11
+|   |   |   |--- previous_visitors >  26.50
+|   |   |   |   |--- month <= 11.50
+|   |   |   |   |   |--- truncated branch of depth 11
+|   |   |   |   |--- month >  11.50
+|   |   |   |   |   |--- truncated branch of depth 9
+|   |--- holiday_flg >  0.50
+|   |   |--- day <= 26.00
+|   |   |   |--- day <= 7.00
+|   |   |   |   |--- previous_visitors <= 48.50
+|   |   |   |   |   |--- truncated branch of depth 8
+|   |   |   |   |--- previous_visitors >  48.50
+|   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |--- day >  7.00
+|   |   |   |   |--- previous_visitors <= 7.50
+|   |   |   |   |   |--- truncated branch of depth 6
+|   |   |   |   |--- previous_visitors >  7.50
+|   |   |   |   |   |--- truncated branch of depth 11
+|   |   |--- day >  26.00
+|   |   |   |--- previous_visitors <= 22.50
+|   |   |   |   |--- previous_14_record_avg <= 10.68
+|   |   |   |   |   |--- truncated branch of depth 2
+|   |   |   |   |--- previous_14_record_avg >  10.68
+|   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |--- previous_visitors >  22.50
+|   |   |   |   |--- previous_visitors <= 40.50
+|   |   |   |   |   |--- truncated branch of depth 3
+|   |   |   |   |--- previous_visitors >  40.50
+|   |   |   |   |   |--- truncated branch of depth 2
+|--- day_of_week_num >  3.50
+|   |--- previous_7_record_avg <= 11.79
+|   |   |--- previous_7_record_avg <= 6.50
+|   |   |   |--- previous_7_record_avg <= 1.79
+|   |   |   |   |--- previous_7_record_avg <= 1.21
+|   |   |   |   |   |--- class: Low
+|   |   |   |   |--- previous_7_record_avg >  1.21
+|   |   |   |   |   |--- class: Low
+|   |   |   |--- previous_7_record_avg >  1.79
+|   |   |   |   |--- day_of_week_num <= 4.50
+|   |   |   |   |   |--- truncated branch of depth 10
+|   |   |   |   |--- day_of_week_num >  4.50
+|   |   |   |   |   |--- truncated branch of depth 11
+|   |   |--- previous_7_record_avg >  6.50
+|   |   |   |--- day_of_week_num <= 5.50
+|   |   |   |   |--- is_weekend <= 0.50
+|   |   |   |   |   |--- truncated branch of depth 11
+|   |   |   |   |--- is_weekend >  0.50
+|   |   |   |   |   |--- truncated branch of depth 11
+|   |   |   |--- day_of_week_num >  5.50
+|   |   |   |   |--- high_limit <= 22.83
+|   |   |   |   |   |--- truncated branch of depth 11
+|   |   |   |   |--- high_limit >  22.83
+|   |   |   |   |   |--- class: Low
+|   |--- previous_7_record_avg >  11.79
+|   |   |--- is_weekend <= 0.50
+|   |   |   |--- month <= 11.50
+|   |   |   |   |--- days_since_previous_record <= 1.50
+|   |   |   |   |   |--- truncated branch of depth 11
+|   |   |   |   |--- days_since_previous_record >  1.50
+|   |   |   |   |   |--- truncated branch of depth 10
+|   |   |   |--- month >  11.50
+|   |   |   |   |--- previous_visitors <= 43.50
+|   |   |   |   |   |--- truncated branch of depth 11
+|   |   |   |   |--- previous_visitors >  43.50
+|   |   |   |   |   |--- truncated branch of depth 5
+|   |   |--- is_weekend >  0.50
+|   |   |   |--- day_of_week_num <= 5.50
+|   |   |   |   |--- low_limit <= 24.83
+|   |   |   |   |   |--- truncated branch of depth 11
+|   |   |   |   |--- low_limit >  24.83
+|   |   |   |   |   |--- truncated branch of depth 11
+|   |   |   |--- day_of_week_num >  5.50
+|   |   |   |   |--- previous_visitors <= 38.50
+|   |   |   |   |   |--- truncated branch of depth 11
+|   |   |   |   |--- previous_visitors >  38.50
+|   |   |   |   |   |--- truncated branch of depth 11

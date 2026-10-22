@@ -1,0 +1,2 @@
+model,records,evaluation,mae,rmse,r2,baseline_mae,baseline_rmse
+Linear Regression Revenue,137,5-fold out-of-fold,1825871.8969426407,2581812.4550164407,-0.01184778161501776,1681468.233121275,2571302.33419365

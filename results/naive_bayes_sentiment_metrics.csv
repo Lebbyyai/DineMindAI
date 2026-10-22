@@ -1,0 +1,2 @@
+model,task,accuracy,macro_f1,validation_macro_f1,train_rows,test_rows
+Multinomial Naive Bayes,Review sentiment classification,0.82,0.81998199819982,0.8186862568871869,796,200

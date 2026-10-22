@@ -1,0 +1,2 @@
+model,architecture,iterations,mae,rmse,r2,baseline_mae,training_rows,testing_rows
+Artificial Neural Network,32-16,92,8.000703507505706,13.186187786706691,0.4852507494533811,10.902066061323858,202507,37995

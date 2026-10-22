@@ -1,0 +1,2 @@
+model,best_c,validation_f1,accuracy,precision,recall,f1_score,baseline_accuracy,baseline_f1,majority_accuracy,training_rows,testing_rows
+Linear Support Vector Machine,1.0,0.5146063960639606,0.6617186471904198,0.5066094075018452,0.578544061302682,0.5401924659249454,0.6188709040663245,0.4396982008125363,0.6565337544413739,202507,37995

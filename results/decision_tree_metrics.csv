@@ -1,0 +1,2 @@
+model,best_depth,best_min_samples_leaf,validation_macro_f1,accuracy,macro_f1,baseline_accuracy,baseline_macro_f1,training_rows,testing_rows
+Decision Tree,15,50,0.44389400630724457,0.4710093433346493,0.45017849945765254,0.40268456375838924,0.400483782150352,202507,37995

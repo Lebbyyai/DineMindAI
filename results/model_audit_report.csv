@@ -1,0 +1,7 @@
+model,status,details
+Linear Regression,PASS,Loaded and predicted 5 samples
+Naive Bayes,PASS,Loaded and predicted 5 samples
+KNN,PASS,Loaded and predicted 5 samples
+SVM,PASS,Loaded and predicted 5 samples
+Decision Tree,PASS,Loaded and predicted 5 samples
+ANN,PASS,Loaded and predicted 5 samples

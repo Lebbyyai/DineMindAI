@@ -1,0 +1,2 @@
+model,accuracy,precision,recall,f1,validation_f1,baseline_accuracy,train_rows,test_rows
+SVM Customer Satisfaction,0.7124463519313304,0.6371681415929203,0.7346938775510204,0.6824644549763034,0.6794258373205742,0.5793991416309013,928,233

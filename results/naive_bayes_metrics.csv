@@ -1,0 +1,2 @@
+model,accuracy,macro_f1,baseline_accuracy,training_rows,testing_rows
+Gaussian Naive Bayes,0.35623108303724177,0.3510743991492656,0.40268456375838924,202507,37995

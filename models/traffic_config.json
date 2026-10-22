@@ -1,0 +1,10 @@
+{
+  "global_low": 11.0,
+  "global_high": 24.0,
+  "classes": [
+    "Low",
+    "Medium",
+    "High"
+  ],
+  "method": "Per-restaurant training terciles"
+}

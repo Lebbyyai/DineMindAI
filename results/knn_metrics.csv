@@ -1,0 +1,2 @@
+model,best_k,validation_macro_f1,accuracy,macro_f1,baseline_accuracy,training_rows,testing_rows
+K-Nearest Neighbors,51,0.43168401875147366,0.44613764969074876,0.4279648528883487,0.40268456375838924,202507,37995
